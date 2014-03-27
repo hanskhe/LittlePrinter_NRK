@@ -41,7 +41,8 @@
         font-family: Arial;
         font-size: 16px; 
         text-align: center;
-        margin: 0px;  
+        margin: 0px;
+        font-weight:lighter  
         }
        figure {
             display: block;
@@ -52,6 +53,9 @@
         } 
         p{
             margin: 0px;
+            text-align: center;
+            font-family: Arial;
+
         } 
 
     </style>
@@ -59,7 +63,11 @@
 <body>
    
     <p>
-    <figure><img src= {{ url_for('static', filename = '/img/' + image_name) }}  /></figure>
+    <hr style="background:#000000; border:0; height:7px" />
+    <figure><img src= {{ url_for('static', filename = '/img/' + img_name) }}  /></figure>
+    <p>Siste overskrifter fra NRK.no, hentet {{retrievedHour}}:{{retrivedMinute}}</p>
+    <hr style="background:#000000; border:0; height:7px" />
+
     {% for i in range(headings|length) %}
         <h2>{{ headings[i] }}</h2>
         <h3>{{ breadtext[i] }}</h3>

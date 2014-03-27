@@ -3,6 +3,7 @@ from datetime import datetime
 import dateutil.parser
 from flask import Flask, abort, json, jsonify, make_response, render_template, Response, request, send_from_directory
 import hashlib
+from flask.ext.moment import Moment
 
 import urllib2
 import datetime
@@ -14,6 +15,7 @@ from xml.dom.minidom import parseString
 stories = {}
 
 def read():
+    stories.clear()
     start_Time = datetime.datetime.now()
     file = urllib2.urlopen("http://www.nrk.no/nyheiter/siste.rss")
     data = file.read()
@@ -51,7 +53,7 @@ app.config.from_object(__name__)
 # If there's a HELLOWORLD_SETTINGS environment variable, which should be a
 # config filename, use those settings:
 app.config.from_envvar('HELLOWORLD_SETTINGS', silent=True)
-
+moment = Moment(app)
 
 @app.route('/')
 def root():
@@ -198,7 +200,7 @@ def edition():
     i = 0
     response = make_response(render_template(
                 'edition.html',
-                 image_name = "NRK.gif", gre = stories, headings = headings, breadtext = breadtext
+                 img_name = "NRK.gif", gre = stories, headings = headings, breadtext = breadtext, retrievedHour = datetime.datetime.now().hour, retrivedMinute = datetime.datetime.now().minute
             ))
     response.headers['Content-Type'] = 'text/html; charset=utf-8'
     response.headers['ETag'] = '"%s"' % (
