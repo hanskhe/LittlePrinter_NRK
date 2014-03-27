@@ -1,0 +1,33 @@
+{
+  "owner_email": "publishers@bergcloud.com",
+  "publication_api_version": "1.0",
+  "name": "Hello, World!",
+  "description": "Example publication for Little Printer",
+  "delivered_on": "every Monday",
+  "external_configuration": false,
+  "send_timezone_info": true,
+  "send_delivery_count": false,
+  "config": {
+    "fields": [
+      {
+        "type": "text",
+        "name": "name",
+        "label": "Enter your name"
+      },
+      {
+        "type": "select",
+        "name": "lang",
+        "label": "Select your greeting language",
+        "options": [
+          ["English", "english"],
+          ["French", "french"],
+          ["German", "german"],
+          ["Spanish", "spanish"],
+          ["Portuguese", "portuguese"],
+          ["Italian", "italian"],
+          ["Swedish", "swedish"]
+        ]
+      }
+    ]
+  }
+}

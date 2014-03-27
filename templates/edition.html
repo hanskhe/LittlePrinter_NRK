@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <style type="text/css">
+        img{
+            display: block;
+            width: 250px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 0px;
+            margin-top:0px;
+        }
+        body {
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box; 
+            background: #fff;
+            color: #000;
+            width: 384px;
+            margin: 0px;
+            padding: 10px 5px 10px 5px;
+
+          
+        }
+        h1 {
+            word-wrap: break-word;
+            font-family: Arial;
+            text-align: center;
+        }
+        h2{
+            padding: 0px, 0px, 0px, 0px;
+            margin: 10px 0px 0px 0px;
+            text-align: center;
+            font-size: 22px;
+
+        }
+        h3{
+        padding: 0px;
+        font-family: Arial;
+        font-size: 16px; 
+        text-align: center;
+        margin: 0px;  
+        }
+       figure {
+            display: block;
+            -webkit-margin-before: 0px;
+            -webkit-margin-after: 0px;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+        } 
+        p{
+            margin: 0px;
+        } 
+
+    </style>
+</head>
+<body>
+   
+    <p>
+    <figure><img src= {{ url_for('static', filename = '/img/' + image_name) }}  /></figure>
+    {% for i in range(headings|length) %}
+        <h2>{{ headings[i] }}</h2>
+        <h3>{{ breadtext[i] }}</h3>
+    {% endfor %}
+</p>
+</body>
+</html>
