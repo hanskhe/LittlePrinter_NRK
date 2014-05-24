@@ -17,7 +17,7 @@ stories = {}
 def read():
     stories.clear()
     start_Time = datetime.datetime.now()
-    file = urllib2.urlopen("http://www.nrk.no/nyheiter/siste.rss")
+    file = urllib2.urlopen("http://www.nrk.no/nyheter/siste.rss")
     data = file.read()
     file.close()
     end_Time = datetime.datetime.now()
